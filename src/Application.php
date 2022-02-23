@@ -4,14 +4,21 @@ namespace FileCounter;
 
 class Application
 {
-    public static function main($args)
+    public static function main($target)
     {
-        if (count($args) < 2) {
-            throw new \Exception("Error: Please provide target directory");
+        $files = DirectoryScanner::getFiles($target);
+
+        if (count($files) < 1) {
+            throw new \Exception("Error: There are no files at target directory.");
         }
 
-        $targetDir = $args[1];
+        $summaries = SimilarContentScanner::getSummaries($files);
+        $humanFriendlySummaries = SimilarContentScanner::getHumanFriendlySummaries($summaries);
+        $humanhumanFriendlyBiggerSummary = SimilarContentScanner::getHumanFriendlyBiggerSummary($summaries);
 
-        return scandir($targetDir);
+        return json_encode([
+            'files' => $humanFriendlySummaries,
+            'bigger' => $humanhumanFriendlyBiggerSummary,
+        ], JSON_PRETTY_PRINT);
     }
 }

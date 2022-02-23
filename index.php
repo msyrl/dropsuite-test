@@ -4,6 +4,4 @@ require_once 'vendor/autoload.php';
 
 use FileCounter\Application;
 
-$app = Application::main($argv);
-
-var_dump($app);
+print Application::main(require_once 'config/target.php');

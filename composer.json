@@ -15,5 +15,8 @@
     "psr-4": {
       "FileCounter\\": "src/"
     }
+  },
+  "scripts": {
+    "start": "php index.php"
   }
 }

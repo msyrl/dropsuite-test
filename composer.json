@@ -1,0 +1,19 @@
+{
+  "name": "msyrl/file-counter",
+  "description": "File counter in specific directory",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Muhammad Syachrul",
+      "email": "syachrulmuhammad@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4 || >=8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "FileCounter\\": "src/"
+    }
+  }
+}
